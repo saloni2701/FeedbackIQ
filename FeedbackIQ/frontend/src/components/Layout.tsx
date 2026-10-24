@@ -1,4 +1,5 @@
 import { NavLink, Outlet } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import ThemeToggle from './ThemeToggle';
 
 const links = [
@@ -12,6 +13,7 @@ const links = [
 ];
 
 export default function Layout() {
+  const { user, logout } = useAuth();
   return (
     <div className="min-h-screen">
       <header className="bg-nav">
@@ -31,7 +33,17 @@ export default function Layout() {
               </NavLink>
             ))}
           </nav>
-          <ThemeToggle />
+          <div className="flex flex-wrap items-center gap-x-5">
+            <ThemeToggle />
+            <span className="hidden text-sm text-[#d3dbee] sm:inline" title={user?.email}>{user?.name}</span>
+            <button
+              type="button"
+              onClick={logout}
+              className="min-h-[44px] rounded-lg border border-[#6f7fa8] px-4 text-sm text-white hover:bg-white/10"
+            >
+              Sign out
+            </button>
+          </div>
         </div>
       </header>
       <main className="mx-auto flex max-w-[1280px] flex-col gap-6 px-8 py-8">
