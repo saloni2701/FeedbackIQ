@@ -1,0 +1,16 @@
+Frontend:
+cd FeedbackIQ/Frontend
+npm install
+npm run dev
+
+Backend:
+cd FeedbackIQ/Backend
+python -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+cp .env.example .env
+python -c "import secrets; print(secrets.token_hex(32))"
+docker compose up -d db
+alembic upgrade head
+python -m scripts.seed
+uvicorn app.main:app --reload
