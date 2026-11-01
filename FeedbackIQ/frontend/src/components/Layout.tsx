@@ -5,6 +5,7 @@ import ThemeToggle from './ThemeToggle';
 const links = [
   { to: '/', label: 'Overview', end: true },
   { to: '/feedback', label: 'Feedback' },
+  { to: '/upload', label: 'Upload' },
   { to: '/topics', label: 'Topics' },
   { to: '/issues', label: 'Issues' },
   { to: '/requests', label: 'Requests' },

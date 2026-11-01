@@ -10,6 +10,7 @@ import Trends from './pages/Trends';
 import Reports from './pages/Reports';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import Upload from './pages/Upload';
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route index element={<Overview />} />
           <Route path="feedback" element={<Feedback />} />
+          <Route path="upload" element={<Upload />} />
           <Route path="topics" element={<Topics />} />
           <Route path="issues" element={<Issues />} />
           <Route path="requests" element={<Requests />} />

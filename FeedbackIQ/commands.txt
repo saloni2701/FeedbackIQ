@@ -14,3 +14,7 @@ docker compose up -d db
 alembic upgrade head
 python -m scripts.seed
 uvicorn app.main:app --reload
+
+Database:
+To track user data, run in backend terminal:
+docker compose exec db psql -U feedbackiq -d feedbackiq
