@@ -1,12 +1,13 @@
 import type { ReactNode } from 'react';
 import ThemeToggle from './ThemeToggle';
+import Logo from './Logo';
 
 export default function AuthLayout({ title, subtitle, children }: { title: string; subtitle: string; children: ReactNode }) {
   return (
     <div className="min-h-screen">
       <header className="bg-nav">
         <div className="mx-auto flex min-h-[64px] max-w-[1280px] items-center justify-between px-8">
-          <span className="text-xl font-semibold text-white">FeedbackIQ</span>
+          <Logo />
           <ThemeToggle />
         </div>
       </header>
