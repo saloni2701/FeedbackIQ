@@ -18,3 +18,20 @@ uvicorn app.main:app --reload
 Database:
 To track user data, run in backend terminal:
 docker compose exec db psql -U feedbackiq -d feedbackiq
+
+Queries:
+-- Registered accounts (never select password_hash)
+SELECT id, name, email, created_at FROM users ORDER BY created_at DESC;
+
+-- How much feedback is stored
+SELECT count(*) FROM feedback;
+
+-- Latest comments with their analysis
+SELECT id, left(text, 60) AS text, source, sentiment, aspect, created_at
+FROM feedback ORDER BY id DESC LIMIT 20;
+
+-- Breakdown by source and mood
+SELECT source, sentiment, count(*) FROM feedback GROUP BY 1, 2 ORDER BY 1, 2;
+
+-- The generated insights
+SELECT title, aspect, severity, mentions, priority FROM issues ORDER BY priority DESC;
