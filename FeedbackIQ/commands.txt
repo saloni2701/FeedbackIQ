@@ -1,10 +1,10 @@
 Frontend:
-cd FeedbackIQ/Frontend
+cd FeedbackIQ/frontend
 npm install
 npm run dev
 
 Backend:
-cd FeedbackIQ/Backend
+cd FeedbackIQ/backend
 python -m venv .venv
 source .venv/bin/activate
 pip install -r requirements.txt
